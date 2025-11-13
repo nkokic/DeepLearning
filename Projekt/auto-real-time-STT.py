@@ -13,15 +13,15 @@ def transcribe_directly():
     temp_file = tempfile.NamedTemporaryFile(suffix=".wav", delete=False)
 
     # Audio settings
-    sample_rate = 16000
+    sample_rate = 44100
     bits_per_sample = 16
     chunk_size = 1024
     audio_format = pyaudio.paInt16
-    channels = 1
+    channels = 2
 
     # Silence detection parameters
-    threshold = 500     # Adjust based on your microphone sensitivity
-    silence_limit = 1.0 # seconds of silence before stopping
+    threshold = 170     # Adjust based on your microphone sensitivity
+    silence_limit = 3.0 # seconds of silence before stopping
 
     # Open the WAV file
     wav_file = wave.open(temp_file.name, 'wb')
@@ -46,14 +46,17 @@ def transcribe_directly():
         while True:
             data = stream.read(chunk_size, exception_on_overflow=False)
             samples = np.frombuffer(data, dtype=np.int16)
-            rms = np.sqrt(np.mean(np.square(samples)))
+            level = np.sqrt(np.abs(np.max(np.square(samples))))
+            #print(level)
+            
+            if speaking:
+                recording.append(data)
 
-            if rms > threshold:
+            if level > threshold:
                 # Detected speech
                 if not speaking:
                     print("Speech detected, recording...")
                     speaking = True
-                recording.append(data)
                 silence_start = None  # reset silence timer
             else:
                 # Detected silence
@@ -63,6 +66,7 @@ def transcribe_directly():
                     elif time.time() - silence_start > silence_limit:
                         print("Silence detected. Stopping recording.")
                         break
+
 
     except KeyboardInterrupt:
         print("Stopped manually.")
@@ -87,4 +91,5 @@ def transcribe_directly():
         return ""
 
 if __name__ == "__main__":
-    transcribe_directly()
+    while True:
+        transcribe_directly()
