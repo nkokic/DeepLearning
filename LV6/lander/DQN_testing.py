@@ -4,9 +4,9 @@ from DQN_agent import DQNAgent
 
 # EDIT HERE
 ENV_ID = "LunarLander-v3"
-MODEL_PATH = "saved_models\\dqn_LunarLander-v3_final_2025-12-18_10-50-08.pth"
+MODEL_PATH = "saved_models\\dqn_LunarLander-v3_final_2026-01-13_17-52-00.pth"
 N_EPISODES = 100
-RENDER = True  # True = vizualizacija, False = bez prozora
+RENDER = False  # True = vizualizacija, False = bez prozora
 
 
 
