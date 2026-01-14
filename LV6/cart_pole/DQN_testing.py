@@ -4,8 +4,11 @@ from DQN_agent import DQNAgent
 
 # EDIT HERE
 ENV_ID = "CartPole-v1"
-MODEL_PATH = "saved_models/cart_pole/dqn_CartPole-v1_final_2025-12-18_09-14-01.pth"
-N_EPISODES = 100
+MODEL_PATH = "saved_models\\dqn_CartPole-v1_final_2025-12-18_09-14-01.pth"
+N_EPISODES = 1000
+# Mean reward:   500.000
+# Std reward:    0.000
+# Median reward: 500.000
 RENDER = False  # True = vizualizacija, False = bez prozora
 
 

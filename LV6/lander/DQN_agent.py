@@ -59,11 +59,13 @@ class DQNAgent:
     def build_model(self):
         """Gradi neuronsku mrežu koja aproksimira Q(s,a) za sve akcije."""
         model = nn.Sequential(
-            nn.Linear(self.state_size, 64),
+            nn.Linear(self.state_size, 16),
             nn.LeakyReLU(),
-            nn.Linear(64, 64),
+            nn.Linear(16, 16),
             nn.LeakyReLU(),
-            nn.Linear(64, self.action_size),
+            nn.Linear(16, 16),
+            nn.LeakyReLU(),
+            nn.Linear(16, self.action_size),
         )
         return model
 

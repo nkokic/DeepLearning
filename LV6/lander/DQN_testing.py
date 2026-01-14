@@ -4,11 +4,30 @@ from DQN_agent import DQNAgent
 
 # EDIT HERE
 ENV_ID = "LunarLander-v3"
-MODEL_PATH = "saved_models\\dqn_LunarLander-v3_final_2026-01-13_17-52-00.pth"
-N_EPISODES = 100
+
+MODEL_PATH = "saved_models\\dqn_LunarLander-v3_final_2025-12-18_10-01-30.pth"
+# Mean reward:   226.465
+# Std reward:    69.587
+# Median reward: 242.680
+
+# MODEL_PATH = "saved_models\\dqn_LunarLander-v3_final_2025-12-18_10-24-34.pth"
+# Mean reward:   148.286
+# Std reward:    130.337
+# Median reward: 204.589
+
+
+# MODEL_PATH = "saved_models\\dqn_LunarLander-v3_final_2025-12-18_10-50-08.pth"
+# Mean reward:   148.286
+# Std reward:    130.337
+# Median reward: 204.589
+
+# MODEL_PATH = "saved_models\\dqn_LunarLander-v3_final_2026-01-13_17-52-00.pth"
+# Mean reward:   131.118
+# Std reward:    151.415
+# Median reward: 208.559
+
+N_EPISODES = 1000
 RENDER = False  # True = vizualizacija, False = bez prozora
-
-
 
 SEED = 123
 
