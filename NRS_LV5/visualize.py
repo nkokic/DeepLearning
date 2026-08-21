@@ -1,12 +1,12 @@
 import gymnasium as gym
 import gymnasium_robotics
-from stable_baselines3 import PPO
+from stable_baselines3 import PPO, A2C, SAC, TD3
 
 gym.register_envs(gymnasium_robotics)
 
 env = gym.make("HandManipulateBlockRotateZ-v1", render_mode="human")
 
-model = PPO.load("models/ppo_hand_rotate_z", env=env)
+model = SAC.load("models\\sac_her_20260821_132605\\sac_her_hand_rotate_z_final.zip", env=env)
 
 obs, info = env.reset()
 
